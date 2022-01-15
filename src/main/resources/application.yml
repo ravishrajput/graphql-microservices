@@ -1,0 +1,3 @@
+graphql:
+  enabled: true
+  path: /graphql
