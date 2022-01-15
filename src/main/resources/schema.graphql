@@ -1,0 +1,12 @@
+type Query {
+    """get user details with required params"""
+    userDetails(param:UserInput!):User!
+
+    """get all users list present in the database"""
+    getAllUsers:[User]!
+}
+
+type Mutation {
+    """Add new user to the database"""
+    addUser(param:AddUser!):SuccessResponse!
+}

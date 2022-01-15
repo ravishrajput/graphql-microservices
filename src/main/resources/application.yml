@@ -1,3 +1,15 @@
+micronaut:
+  http:
+    client:
+      read-timeout: 30s
+    services:
+      api-client:
+        url: http://api.ravishrajput.com
+        username: dummyRestApi
+        password: wrongPwd
 graphql:
-  enabled: true
-  path: /graphql
+  graphiql:
+    enabled: true
+basic-auth:
+  username: ravishrajput-bff
+  password: dummyPwd
