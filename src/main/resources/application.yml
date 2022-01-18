@@ -5,8 +5,8 @@ micronaut:
     services:
       api-client:
         url: http://api.ravishrajput.com
-        username: dummyRestApi
-        password: wrongPwd
+        api-auth: Basic ZHVtbXlSZXN0QXBpOmNzYjJqOUFrNlhqZEVQNVlJZT0=
+        endpoint: /v1/user
 graphql:
   graphiql:
     enabled: true
