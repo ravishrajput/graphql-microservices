@@ -1,20 +1,21 @@
 """User details response structure"""
 type User {
+    id: Int
     name: String
+    username: String
     email: String
-    phone: String
-    image: String
+    imageUrl: String
 }
 """Request param for add new user query"""
 input AddUser {
     name: String!
-    email: String!
-    phone: String
-    image: String
+    username: String!
+    email: String
+    imageUrl: String
 }
 """Request param input type for UserDetails API"""
 input UserInput {
-    userId: Int!
+    id: Int!
 }
 """Success response for mutation calls"""
 type SuccessResponse {
