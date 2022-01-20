@@ -3,8 +3,9 @@ package com.ravishrajput.bff.graphql
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.ravishrajput.bff.user.api.UserServiceQueryResolver
+import com.ravishrajput.bff.user.resolver.UserServiceQueryResolver
 import com.ravishrajput.bff.user.api.UserServices
+import com.ravishrajput.bff.user.resolver.UserServiceMutationResolver
 import com.ravishrajput.bff.user.resolver.UsersResolver
 import graphql.GraphQL
 import graphql.Scalars
@@ -45,6 +46,7 @@ class GraphQLFactory {
             .resolvers(
                 listOf(
                     UserServiceQueryResolver(userServices),
+                    UserServiceMutationResolver(userServices),
                     UsersResolver(userServices)
                 )
             )

@@ -13,3 +13,8 @@ data class User(
     @JsonProperty("email") val email: String,
     @JsonProperty("imageUrl") val imageUrl: String
 )
+
+data class GenericResponse(
+    @JsonProperty("code") val code: Int,
+    @JsonProperty("message") val message: String
+)
