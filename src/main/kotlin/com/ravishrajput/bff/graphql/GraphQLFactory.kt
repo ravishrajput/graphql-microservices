@@ -41,13 +41,15 @@ class GraphQLFactory {
             .options(optionsBuilder.build())
             .files(
                 "schema.graphql",
-                "user.graphql"
+                "user.graphql",
+                "flights.graphql"
             )
             .resolvers(
                 listOf(
                     UserServiceQueryResolver(userServices),
                     UserServiceMutationResolver(userServices),
                     UsersResolver(userServices)
+                    // todo add Resolver for flights API
                 )
             )
             .scalars(ExtendedScalars.Json, Scalars.GraphQLLong)

@@ -1,4 +1,4 @@
-"""User details response structure"""
+"""User details data structure"""
 type User {
     id: Int
     name: String

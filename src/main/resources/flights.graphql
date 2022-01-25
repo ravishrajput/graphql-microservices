@@ -1,0 +1,12 @@
+"""Flight details data structure"""
+type Flight {
+    id: String
+    from: String
+    to: String
+    departure: String
+    arrival: String
+    airlinesName: String
+    airlinesId: String
+    totalFare: Int
+    fareDetailsId: String
+}
