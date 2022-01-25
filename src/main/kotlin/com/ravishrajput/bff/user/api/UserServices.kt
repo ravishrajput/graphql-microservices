@@ -10,11 +10,20 @@ class UserServices(private val userApi: UserApi) {
 
     fun getAllUsers(): UsersListResponse = userApi.getUsersList()
     fun getUserById(id: Int): User? {
-        // todo work on multiple object return type
-        return userApi.getUserById(id)
+        val response = userApi.getUserById(id) as Map<*, *>
+        return if (response.containsKey("id")) {
+            User(
+                response["id"] as Int,
+                response["name"].toString(),
+                response["username"].toString(),
+                response["email"].toString(),
+                response["imageUrl"].toString()
+            )
+        } else null
     }
 
-    fun addNewUser(user: User): GenericResponse {
-        return userApi.addNewUser(user.name, user.username, user.email, user.imageUrl)
+    fun addNewUser(user: User): GenericResponse? {
+        val response = userApi.addNewUser(user.name, user.username, user.email, user.imageUrl)
+        return response as? GenericResponse
     }
 }
