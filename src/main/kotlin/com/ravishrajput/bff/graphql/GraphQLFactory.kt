@@ -3,7 +3,7 @@ package com.ravishrajput.bff.graphql
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.ravishrajput.bff.flights.FlightsServiceQueryResolver
+import com.ravishrajput.bff.flights.resolver.FlightsServiceQueryResolver
 import com.ravishrajput.bff.flights.api.FlightsServices
 import com.ravishrajput.bff.user.api.UserServices
 import com.ravishrajput.bff.user.resolver.UserServiceMutationResolver

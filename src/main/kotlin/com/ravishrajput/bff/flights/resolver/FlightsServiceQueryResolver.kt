@@ -1,4 +1,4 @@
-package com.ravishrajput.bff.flights
+package com.ravishrajput.bff.flights.resolver
 
 import com.ravishrajput.bff.flights.api.FlightsServices
 import com.ravishrajput.bff.flights.models.Flight
