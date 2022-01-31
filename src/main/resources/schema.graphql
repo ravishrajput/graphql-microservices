@@ -5,8 +5,11 @@ type Query {
     """get all users list present in the database"""
     getAllUsers:[User]!
 
+    """get all flights list based on search query present in the database"""
+    searchFlights(from: String!, to: String!, month: String!, date: String!):[Flight]
+
     """get all flights list present in the database"""
-    getAllFlights(from: String!, to: String!, month: String!, date: String!):[Flight]
+    getAllFlights:[Flight]
 }
 
 type Mutation {
