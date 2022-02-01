@@ -3,14 +3,16 @@ package com.ravishrajput.bff.graphql
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
-import com.ravishrajput.bff.flights.resolver.FlightsServiceQueryResolver
 import com.ravishrajput.bff.flights.api.FlightsServices
+import com.ravishrajput.bff.flights.resolver.FlightsServiceQueryResolver
 import com.ravishrajput.bff.user.api.UserServices
 import com.ravishrajput.bff.user.resolver.UserServiceMutationResolver
 import com.ravishrajput.bff.user.resolver.UserServiceQueryResolver
 import com.ravishrajput.bff.user.resolver.UsersResolver
 import graphql.GraphQL
 import graphql.Scalars
+import graphql.execution.AsyncExecutionStrategy
+import graphql.execution.instrumentation.tracing.TracingInstrumentation
 import graphql.kickstart.tools.PerFieldObjectMapperProvider
 import graphql.kickstart.tools.SchemaParser
 import graphql.kickstart.tools.SchemaParserBuilder
@@ -23,11 +25,15 @@ import jakarta.inject.Singleton
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 
 @Factory
-class GraphQLFactory {
+class GraphQLFactory(private val exceptionHandler: ExceptionHandler) {
 
     @Bean
     @Singleton
     fun customSchema(schemaParser: SchemaParser): GraphQL {
+        val graphQLBuilder = GraphQL.newGraphQL(schemaParser.makeExecutableSchema())
+            .queryExecutionStrategy(AsyncExecutionStrategy(exceptionHandler))
+        graphQLBuilder.instrumentation(TracingInstrumentation())
+
         return GraphQL.newGraphQL(schemaParser.makeExecutableSchema())
             .build()
     }

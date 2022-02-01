@@ -2,8 +2,10 @@ package com.ravishrajput.bff.user.api
 
 import com.ravishrajput.bff.user.api.UserApi.Companion.HOST
 import com.ravishrajput.bff.user.models.UsersListResponse
+import io.micronaut.context.annotation.Parameter
 import io.micronaut.http.HttpHeaders
 import io.micronaut.http.MediaType
+import io.micronaut.http.annotation.Body
 import io.micronaut.http.annotation.Consumes
 import io.micronaut.http.annotation.Get
 import io.micronaut.http.annotation.Header
@@ -45,5 +47,8 @@ interface UserApi {
             "\${micronaut.http.services.api-client.endpoint}{&name}{&username}{&email}{&imageUrl}"
 
         const val AUTHORIZATION = "\${micronaut.http.services.api-client.api-auth}"
+
+        const val USERNAME = "username"
+        const val IMAGE_URL = "imageUrl"
     }
 }
