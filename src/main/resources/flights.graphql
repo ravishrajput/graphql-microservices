@@ -10,3 +10,40 @@ type Flight {
     totalFare: Int
     fareDetailsId: String
 }
+
+type FareDetails {
+    id: String
+    airlinesCharges: Int
+    fuelCharges: Int
+    airportTaxes: Int
+}
+
+type AirlineDetails {
+    airline: Airline
+    baggageDetails: BaggageDetails
+    id: String
+    seatsAvailable: Int
+    stops: [Stop]
+}
+
+type Airline{
+    id: String
+    name: String
+}
+
+type BaggageDetails{
+    cabin: Boolean
+    chargesPerExtraKg: Int
+    checkin: Boolean
+}
+
+type City{
+    id: String
+    name: String
+}
+
+type Stop{
+    arrival: String
+    city: City
+    departure: String
+}

@@ -8,6 +8,9 @@ micronaut:
         api-auth: Basic ZHVtbXlSZXN0QXBpOmNzYjJqOUFrNlhqZEVQNVlJZT0=
         endpoint: /v1/user
         endpoint-flight: /v1/flight/getAllFlights
+        endpoint-fareDetails: /v1/flight/fareDetails
+        endpoint-airlines: /v1/flight/airlines
+        endpoint-cities: /v1/flight/cities
 graphql:
   graphiql:
     enabled: true

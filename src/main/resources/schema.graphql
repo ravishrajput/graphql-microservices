@@ -10,6 +10,14 @@ type Query {
 
     """get all flights list present in the database"""
     getAllFlights:[Flight]
+
+    fareDetails(id:String!):FareDetails
+
+    airlineDetails(id:String!):AirlineDetails
+
+    getAllAirlines:[Airline]
+
+    getAllCities:[City]
 }
 
 type Mutation {
