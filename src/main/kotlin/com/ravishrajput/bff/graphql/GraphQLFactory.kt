@@ -4,6 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.datatype.jdk8.Jdk8Module
 import com.fasterxml.jackson.module.kotlin.KotlinModule
 import com.ravishrajput.bff.flights.api.FlightsServices
+import com.ravishrajput.bff.flights.resolver.FlightDetailsResolver
 import com.ravishrajput.bff.flights.resolver.FlightsServiceQueryResolver
 import com.ravishrajput.bff.user.api.UserServices
 import com.ravishrajput.bff.user.resolver.UserServiceMutationResolver
@@ -58,7 +59,8 @@ class GraphQLFactory(private val exceptionHandler: ExceptionHandler) {
                     UserServiceQueryResolver(userServices),
                     UserServiceMutationResolver(userServices),
                     UsersResolver(userServices),
-                    FlightsServiceQueryResolver(flightsServices)
+                    FlightsServiceQueryResolver(flightsServices),
+                    FlightDetailsResolver(flightsServices)
                 )
             )
             .scalars(ExtendedScalars.Json, Scalars.GraphQLLong)

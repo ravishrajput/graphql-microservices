@@ -5,6 +5,7 @@ import com.ravishrajput.bff.flights.models.AirlineDetails
 import com.ravishrajput.bff.flights.models.City
 import com.ravishrajput.bff.flights.models.FareDetails
 import com.ravishrajput.bff.flights.models.Flight
+import com.ravishrajput.bff.flights.models.FlightDetails
 import jakarta.inject.Singleton
 
 @Singleton
@@ -38,4 +39,10 @@ class FlightsServices(private val flightsApi: FlightsApi) {
     fun getAllAirlines(): List<Airline> = flightsApi.getAllAirlines()
 
     fun getAllCities(): List<City> = flightsApi.getAllCities()
+
+    fun getFlightDetails(from: String, to: String, month: String, date: String): List<FlightDetails> {
+        return flightsApi.searchFlights(from, to, month, date).map {
+            FlightDetails(it)
+        }
+    }
 }

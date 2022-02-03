@@ -20,3 +20,8 @@ data class FareDetails(
     @JsonProperty("fuelCharges") val fuelCharges: Int,
     @JsonProperty("airportTaxes") val airportTaxes: Int
 )
+
+data class FlightDetails(
+    @JsonProperty("flight") val flight: Flight,
+    @JsonProperty("airlineDetails") val airlineDetails: AirlineDetails? = null
+)

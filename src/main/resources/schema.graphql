@@ -18,6 +18,8 @@ type Query {
     getAllAirlines:[Airline]
 
     getAllCities:[City]
+
+    getFlightDetails(from: String!, to: String!, month: String!, date: String!):[FlightDetails]
 }
 
 type Mutation {

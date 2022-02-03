@@ -6,6 +6,7 @@ import com.ravishrajput.bff.flights.models.AirlineDetails
 import com.ravishrajput.bff.flights.models.City
 import com.ravishrajput.bff.flights.models.FareDetails
 import com.ravishrajput.bff.flights.models.Flight
+import com.ravishrajput.bff.flights.models.FlightDetails
 import graphql.kickstart.tools.GraphQLQueryResolver
 import jakarta.inject.Singleton
 import java.util.concurrent.CompletableFuture
@@ -40,5 +41,15 @@ class FlightsServiceQueryResolver(private val flightsServices: FlightsServices) 
     fun getAllCities(): CompletableFuture<List<City>> =
         CompletableFuture.supplyAsync {
             flightsServices.getAllCities()
+        }
+
+    fun getFlightDetails(
+        from: String,
+        to: String,
+        month: String,
+        date: String
+    ): CompletableFuture<List<FlightDetails>> =
+        CompletableFuture.supplyAsync {
+            flightsServices.getFlightDetails(from, to, month, date)
         }
 }
