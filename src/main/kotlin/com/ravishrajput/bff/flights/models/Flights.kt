@@ -23,5 +23,5 @@ data class FareDetails(
 
 data class FlightDetails(
     @JsonProperty("flight") val flight: Flight,
-    @JsonProperty("airlineDetails") val airlineDetails: AirlineDetails? = null
+    @JsonProperty("airlineDetails") var airlineDetails: AirlineDetails? = null
 )

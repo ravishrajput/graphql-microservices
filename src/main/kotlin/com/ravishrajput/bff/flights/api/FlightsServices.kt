@@ -42,7 +42,8 @@ class FlightsServices(private val flightsApi: FlightsApi) {
 
     fun getFlightDetails(from: String, to: String, month: String, date: String): List<FlightDetails> {
         return flightsApi.searchFlights(from, to, month, date).map {
-            FlightDetails(it)
+            val airlineDetails = flightsApi.getAirlineDetails(it.airlinesId)
+            FlightDetails(it, airlineDetails)
         }
     }
 }
